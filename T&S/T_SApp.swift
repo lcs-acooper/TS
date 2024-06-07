@@ -11,7 +11,35 @@ import SwiftUI
 struct T_SApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView(selection: Binding.constant(1)) {
+                HomePage()
+                    .tabItem {
+                        Image(systemName: "house")
+                        Text("Home")
+                    }
+                    .tag(1)
+
+                Text("Search")
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                        Text("Search")
+                    }
+                    .tag(2)
+
+                Text("Shopping Cart")
+                    .tabItem {
+                        Image(systemName: "cart")
+                        Text("Shopping Cart")
+                    }
+                    .tag(3)
+
+                SettingsPage()
+                    .tabItem {
+                        Image(systemName: "gear")
+                        Text("Settings")
+                    }
+                    .tag(4)
+            }
         }
     }
 }

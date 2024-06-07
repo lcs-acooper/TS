@@ -8,8 +8,29 @@
 import SwiftUI
 
 struct SettingsPage: View {
+    @State private var notificationsEnabled = true
+    @State private var selectedTheme = "Light"
+    @State private var username = ""
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            Form {
+                Section(header: Text("General Settings")) {
+                    Toggle(isOn: $notificationsEnabled) {
+                        Text("Enable Notifications")
+                    }
+                    Picker("Theme", selection: $selectedTheme) {
+                        Text("Light").tag("Light")
+                        Text("Dark").tag("Dark")
+                    }
+                }
+                
+                Section(header: Text("Account")) {
+                    TextField("Username", text: $username)
+                }
+            }
+            .navigationTitle("Settings")
+        }
     }
 }
 
