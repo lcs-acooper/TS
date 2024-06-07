@@ -22,7 +22,7 @@ struct HomePage: View {
 struct HomeSection: View {
     var body: some View {
         VStack {
-            Text("Welcome to LCS Thrift Store")
+            Text("Welcome to T&S Store")
                 .font(.title)
                 .padding(.bottom, 5)
             Text("Find great deals on pre-loved items and support your community.")
@@ -36,10 +36,10 @@ struct HomeSection: View {
 struct ShopSection: View {
     var body: some View {
         VStack(alignment: .center) {
-            Text("LCS Thrift Store")
+            Text("LCS T&S Store")
                 .font(.title2)
                 .padding(.bottom, 5)
-            Text("Shop")
+            Text("Recently Added Items")
                 .font(.title)
 
             ScrollView(.horizontal) {

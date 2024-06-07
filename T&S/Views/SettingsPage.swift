@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsPage: View {
     @State private var notificationsEnabled = true
-    @State private var selectedTheme = "Light"
+    @State var isDarkMode = false
     @State private var username = ""
 
     var body: some View {
@@ -19,9 +19,9 @@ struct SettingsPage: View {
                     Toggle(isOn: $notificationsEnabled) {
                         Text("Enable Notifications")
                     }
-                    Picker("Theme", selection: $selectedTheme) {
-                        Text("Light").tag("Light")
-                        Text("Dark").tag("Dark")
+                
+                    Toggle(isOn: $isDarkMode) {
+                        Text("Dark Mode")
                     }
                 }
                 
@@ -30,6 +30,7 @@ struct SettingsPage: View {
                 }
             }
             .navigationTitle("Settings")
+            .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
 }
@@ -37,3 +38,4 @@ struct SettingsPage: View {
 #Preview {
     SettingsPage()
 }
+

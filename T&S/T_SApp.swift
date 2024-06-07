@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct T_SApp: App {
+    
+    @State private var selectedTab = 1
+    
     var body: some Scene {
         WindowGroup {
-            TabView(selection: Binding.constant(1)) {
+            TabView(selection: $selectedTab) {
                 HomePage()
                     .tabItem {
                         Image(systemName: "house")
