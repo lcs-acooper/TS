@@ -22,7 +22,7 @@ struct T_SApp: App {
                     }
                     .tag(1)
 
-                Text("Search")
+                SearchPage()
                     .tabItem {
                         Image(systemName: "magnifyingglass")
                         Text("Search")

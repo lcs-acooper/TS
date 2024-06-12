@@ -45,20 +45,20 @@ struct ShopSection: View {
             ScrollView(.horizontal) {
                 HStack(spacing: 15) {
                     VStack {
-                        ShopItem(imageName: "item1", title: "Item 1", price: "$10.00")
-                        ShopItem(imageName: "item2", title: "Item 2", price: "$15.00")
+                        ShopItem(imageName: "item1", title: "Item 1", price: 10.00)
+                        ShopItem(imageName: "item2", title: "Item 2", price: 15.00)
                     }
                     VStack {
-                        ShopItem(imageName: "item3", title: "Item 3", price: "$10.00")
-                        ShopItem(imageName: "item4", title: "Item 4", price: "$20.00")
+                        ShopItem(imageName: "item3", title: "Item 3", price: 20.00)
+                        ShopItem(imageName: "item4", title: "Item 4", price: 50.00)
                     }
                     VStack {
-                        ShopItem(imageName: "item5", title: "Item 5", price: "$5.00")
-                        ShopItem(imageName: "item6", title: "Item 6", price: "$10.00")
+                        ShopItem(imageName: "item5", title: "Item 5", price: 5.00)
+                        ShopItem(imageName: "item6", title: "Item 6", price: 10.00)
                     }
                     VStack {
-                        ShopItem(imageName: "item7", title: "Item 7", price: "$10.00")
-                        ShopItem(imageName: "item8", title: "Item 8", price: "$10.00")
+                        ShopItem(imageName: "item7", title: "Item 7", price: 20.00)
+                        ShopItem(imageName: "item8", title: "Item 8", price: 15.00)
                     }
                 }
             }
@@ -81,7 +81,7 @@ struct ShopSection: View {
             }
             .tag(1)
 
-        Text("Search")
+    SearchPage()
             .tabItem {
                 Image(systemName: "magnifyingglass")
                 Text("Search")

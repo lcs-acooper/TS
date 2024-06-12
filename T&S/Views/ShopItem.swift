@@ -10,19 +10,23 @@ import SwiftUI
 struct ShopItem: View {
     var imageName: String
     var title: String
-    var price: String
+    var price: Double
     
     var body: some View {
         VStack {
+          
             Image(imageName)
                 .resizable()
                 .frame(width: 100, height: 100)
                 .cornerRadius(8)
             Text(title)
                 .font(.headline)
-            Text(price)
-                .font(.subheadline)
-                .foregroundColor(.gray)
+            
+            // Need help understanding this more 
+            Text(String(format: "$%.2f", price)) // Display the price
+                           .font(.subheadline)
+                           .foregroundColor(.gray)
+            
         }
         .padding()
         .background(Color.white)
@@ -32,5 +36,5 @@ struct ShopItem: View {
 }
 
 #Preview {
-    ShopItem(imageName: "image1", title: "image1", price: "15:00")
+    ShopItem(imageName: "Item1", title: "Item1", price: 15.00)
 }
