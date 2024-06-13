@@ -22,33 +22,46 @@ struct SearchPage: View {
     
     
     // MARK: Computed properties
-    var body: some View {
-        NavigationStack {
-            VStack {
-                
-                Picker("Presenting",
-                       selection: $selectedPresentationType) {
-                    Text("Student items").tag(1)
-                    Text("Thrift Clothes").tag(2)
-                    Text("Resell Clothes").tag(3)
+    // The List now displays items according to the selected category and search text.
+        var filteredItems: [SearchItem] {
+            let filtered = filter(search, on: searchText)
+            switch selectedPresentationType {
+            case 1:
+                return filtered.filter { $0.type == .student }
+            case 2:
+                return filtered.filter { $0.type == .thrift }
+            case 3:
+                return filtered.filter { $0.type == .resell }
+            default:
+                return filtered
+            }
+        }
+        
+        var body: some View {
+            NavigationStack {
+                VStack {
+                    
+                    Picker("Presenting",
+                           selection: $selectedPresentationType) {
+                        Text("Student items").tag(1)
+                        Text("Thrift Clothes").tag(2)
+                        Text("Resell Clothes").tag(3)
+                    }
+                    .pickerStyle(.segmented)
+                    .padding()
+                    
+                    List(filteredItems) { searchItem in
+                        ShopItem(imageName: searchItem.imageName, title: searchItem.title, price: searchItem.price)
+                    }
+                    .listStyle(.plain)
+                    
                 }
-                       .pickerStyle(.segmented)
-                       .padding()
-                       
-            
-                List(filter(search, on: searchText)) { searchItem in
-                                  Text(searchItem.title)
-                              }
-                              .listStyle(.plain)
-                
-                
-                
+                .navigationTitle("Search Page")
+                .searchable(text: $searchText)
+            }
         }
-            .navigationTitle("Search Page")
-            .searchable(text: $searchText)
-            
-        }
-    }
+    
+    
     
     // MARK: Functions
         func filter(_ search: [SearchItem], on providedText: String) -> [SearchItem] {

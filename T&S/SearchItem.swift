@@ -7,16 +7,27 @@
 
 import Foundation
 
+enum ItemType {
+    case student
+    case thrift
+    case resell
+}
+// SearchItem model now includes an ItemType enum to categorize items.
 struct SearchItem: Identifiable {
     // MARK: Stored properties
     let id = UUID()
     let imageName: String
     let title: String
     let price: Double
+    let type: ItemType
 }
 
 let exampleItems = [
-    SearchItem(imageName: "laptop", title: "Apple MacBook Pro", price: 1299.99),
-    SearchItem(imageName: "phone", title: "Samsung Galaxy S21", price: 799.99),
-    SearchItem(imageName: "headphones", title: "Sony WH-1000XM4", price: 349.99),
+    SearchItem(imageName: "tshirt", title: "Graphic T-Shirt", price: 19.99, type: .resell),
+    SearchItem(imageName: "jeans", title: "Slim Fit Jeans", price: 49.99, type: .thrift),
+    SearchItem(imageName: "jacket", title: "Leather Jacket", price: 129.99, type: .resell),
+    SearchItem(imageName: "sneakers", title: "Running Sneakers", price: 89.99, type: .student),
+    SearchItem(imageName: "hat", title: "Baseball Cap", price: 24.99, type: .thrift),
+    SearchItem(imageName: "notebook", title: "Notebook", price: 5.99, type: .student)
 ]
+
