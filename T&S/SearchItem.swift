@@ -24,10 +24,10 @@ struct SearchItem: Identifiable {
 
 let exampleItems = [
     SearchItem(imageName: "tshirt", title: "Graphic T-Shirt", price: 19.99, type: .resell),
-    SearchItem(imageName: "jeans", title: "Slim Fit Jeans", price: 49.99, type: .thrift),
+    SearchItem(imageName: "jeans", title: "Slim Fit Jeans", price: 0, type: .thrift),
     SearchItem(imageName: "jacket", title: "Leather Jacket", price: 129.99, type: .resell),
     SearchItem(imageName: "sneakers", title: "Running Sneakers", price: 89.99, type: .student),
-    SearchItem(imageName: "hat", title: "Baseball Cap", price: 24.99, type: .thrift),
+    SearchItem(imageName: "hat", title: "Baseball Cap", price: 0, type: .thrift),
     SearchItem(imageName: "notebook", title: "Notebook", price: 5.99, type: .student)
 ]
 

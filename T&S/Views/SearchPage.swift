@@ -51,9 +51,11 @@ struct SearchPage: View {
                     .padding()
                     
                     List(filteredItems) { searchItem in
-                        ShopItem(imageName: searchItem.imageName, title: searchItem.title, price: searchItem.price)
+                    NavigationLink(destination: ItemDetailView(item: searchItem)) {
+                    ShopItem(imageName: searchItem.imageName, title: searchItem.title, price: searchItem.price)
+                        }
                     }
-                    .listStyle(.plain)
+                .listStyle(.plain)
                     
                 }
                 .navigationTitle("Search Page")
