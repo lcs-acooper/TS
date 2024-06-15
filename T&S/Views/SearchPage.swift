@@ -18,7 +18,7 @@ struct SearchPage: View {
     // Holds the search text provided by the user
     @State private var searchText: String = ""
     
-    
+    @State private var addNewItemIsShowing = false
     
     
     // MARK: Computed properties
@@ -60,8 +60,26 @@ struct SearchPage: View {
                 }
                 .navigationTitle("Search Page")
                 .searchable(text: $searchText)
+                .toolbar {
+                               ToolbarItem(placement: .topBarTrailing) {
+                                   Button {
+                                       // This will show the add review sheet
+                                       addNewItemIsShowing = true
+                                   } label: {
+                                       Image(systemName: "plus")
+                                   }
+                               }
+                           }
+                .sheet(isPresented: $addNewItemIsShowing) {
+                             // The content of the sheet goes here
+                    AddNewItemView(dismissSheet: $addNewItemIsShowing) { newItem in
+                        // Add the new item to the search list
+                        search.append(newItem)
+                    }
+                         }
             }
         }
+      
     
     
     

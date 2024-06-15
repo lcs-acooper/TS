@@ -29,19 +29,12 @@ struct T_SApp: App {
                     }
                     .tag(2)
 
-                Text("Shopping Cart")
-                    .tabItem {
-                        Image(systemName: "cart")
-                        Text("Shopping Cart")
-                    }
-                    .tag(3)
-
                 SettingsPage()
                     .tabItem {
                         Image(systemName: "gear")
                         Text("Settings")
                     }
-                    .tag(4)
+                    .tag(3)
             }
         }
     }

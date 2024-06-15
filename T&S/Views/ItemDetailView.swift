@@ -22,14 +22,6 @@ struct ItemDetailView: View {
                 .font(.title)
                 .padding(.bottom, 5)
             
-            Text("Size: M")
-                .font(.headline)
-                .padding(.bottom, 5)
-            
-            Text("Used Before")
-                .font(.subheadline)
-                .padding(.bottom, 5)
-            
             Text("Price: $\(item.price, specifier: "%.2f")")
                 .font(.title2)
                 .padding(.bottom, 20)
@@ -38,7 +30,10 @@ struct ItemDetailView: View {
                 .font(.headline)
                 .padding(.bottom, 5)
             
-            Text("Student Seller")
+            Text("Seller: \(item.sellerName)")
+                .font(.subheadline)
+            
+            Text("Contact: \(item.contactSeller)")
                 .font(.subheadline)
         }
         .padding()
@@ -49,3 +44,4 @@ struct ItemDetailView: View {
 #Preview {
     ItemDetailView(item: exampleItems[3])
 }
+
