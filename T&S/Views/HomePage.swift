@@ -81,7 +81,7 @@ struct ShopSection: View {
             }
             .tag(1)
 
-    SearchPage()
+    SearchPage() 
             .tabItem {
                 Image(systemName: "magnifyingglass")
                 Text("Search")

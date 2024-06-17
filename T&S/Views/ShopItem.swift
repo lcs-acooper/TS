@@ -14,7 +14,7 @@ struct ShopItem: View {
     
     var body: some View {
         VStack {
-          
+            
             Image(imageName)
                 .resizable()
                 .frame(width: 100, height: 100)
@@ -24,8 +24,8 @@ struct ShopItem: View {
             
             // Need help understanding this more 
             Text(String(format: "$%.2f", price)) // Display the price
-                           .font(.subheadline)
-                           .foregroundColor(.gray)
+                .font(.subheadline)
+                .foregroundColor(.gray)
             
         }
         .padding()
